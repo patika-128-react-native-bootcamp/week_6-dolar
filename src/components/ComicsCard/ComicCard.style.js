@@ -2,26 +2,20 @@ import {StyleSheet} from 'react-native';
 
 export default StyleSheet.create({
   container: {
-    marginVertical: 5,
+    marginVertical: 3,
     borderWidth: 1,
     borderColor: '#bdbdbd',
     borderRadius: 5,
     padding: 5,
     flexDirection: 'row',
   },
-  image: {
-    width: 90,
-    height: 130,
-  },
-  name: {
+  title: {
     color: '#0288d1',
     fontWeight: 'bold',
     fontSize: 20,
   },
-  button: {},
-  description: {
-    color: 'black',
-    marginTop: 10,
-    fontWeight: 'bold',
+  image: {
+    width: 90,
+    height: 130,
   },
 });

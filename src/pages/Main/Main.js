@@ -1,13 +1,14 @@
-import React, { useState, useEffect } from 'react';
-import { View, Text, Flatlist, FlatList } from 'react-native';
+import React, {useState, useEffect} from 'react';
+import {View, Text, FlatList} from 'react-native';
 import CharacterCard from '../../components/CharacterCard';
 import Search from '../../components/Search';
 import axios from 'axios';
-
+import {useNavigation} from '@react-navigation/native';
 
 const hash = '0519bdb5cdd72539b81dfca9cca4dd5b';
 
 const Main = () => {
+  const navigation = useNavigation();
 
   const [items, setItems] = useState([]);
   const [error, setError] = useState(null);
@@ -31,14 +32,17 @@ const Main = () => {
     fetchData();
   }, [query]);
 
-
+  const handleCharSelect = item => {
+    navigation.navigate('CharDetailPage', {id: item.id});
+  };
 
   const onSearch = text => {
     setQuery(text);
   };
 
-
-  const renderChar = ({ item }) => <CharacterCard char={item} />;
+  const renderChar = ({item}) => (
+    <CharacterCard char={item} onPress={() => handleCharSelect(item)} />
+  );
 
   return (
     <View>

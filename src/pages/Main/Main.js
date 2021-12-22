@@ -1,14 +1,15 @@
 import React, { useState, useEffect } from 'react';
-import { View, Text, Flatlist } from 'react-native';
+import { View, Text, Flatlist, FlatList } from 'react-native';
 import CharacterCard from '../../components/CharacterCard';
 import Search from '../../components/Search';
 import axios from 'axios';
+
 
 const hash = '0519bdb5cdd72539b81dfca9cca4dd5b';
 
 const Main = () => {
 
-  const [items, setItems] = useState([{ name: 'Zeynep' }]);
+  const [items, setItems] = useState([]);
   const [error, setError] = useState(null);
   const [loading, setLoading] = useState(true);
   const [query, setQuery] = useState('');
@@ -16,32 +17,33 @@ const Main = () => {
   async function fetchData() {
     try {
       const response = await axios.get(
-        `http://gateway.marvel.com/v1/public/characters?nameStartsWith=${query}&ts=1&apikey=1e4c7fa786a6b13494126a8d82f41974&hash=${hash}`
+        `http://gateway.marvel.com/v1/public/characters?nameStartsWith=${query}&ts=1&apikey=1e4c7fa786a6b13494126a8d82f41974&hash=${hash}`,
       );
-      setItems = (response.data.data.results);
+      setItems(response.data.data.results);
     } catch (error) {
-      setError(error)
+      setError(error);
     } finally {
-      setLoading(false)
+      setLoading(false);
     }
   }
 
   useEffect(() => {
-    fetchData()
-  }, [query])
+    fetchData();
+  }, [query]);
 
-  console.log(error);
 
-  const onSearch = (text) => {
-    setQuery(text)
-  }
+
+  const onSearch = text => {
+    setQuery(text);
+  };
+
 
   const renderChar = ({ item }) => <CharacterCard char={item} />;
 
   return (
     <View>
       <Search onSearch={onSearch} />
-      {/* <Flatlist data={items} renderItem={renderChar} /> */}
+      <FlatList data={items} renderItem={renderChar} />
       <Text>Main Page</Text>
     </View>
   );

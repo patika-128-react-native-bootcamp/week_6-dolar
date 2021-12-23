@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from 'react';
-import {View, Text, FlatList} from 'react-native';
+import {View, Text, FlatList, Button} from 'react-native';
 import CharacterCard from '../../components/CharacterCard';
 import Search from '../../components/Search';
 import axios from 'axios';
@@ -40,12 +40,17 @@ const Main = () => {
     setQuery(text);
   };
 
+  const handleFavorites = () => {
+    navigation.navigate('Favorites');
+  };
+
   const renderChar = ({item}) => (
     <CharacterCard char={item} onPress={() => handleCharSelect(item)} />
   );
 
   return (
     <View>
+      <Button title="Favorites" onPress={() => handleFavorites()} />
       <Search onSearch={onSearch} />
       <FlatList data={items} renderItem={renderChar} />
       <Text>Main Page</Text>

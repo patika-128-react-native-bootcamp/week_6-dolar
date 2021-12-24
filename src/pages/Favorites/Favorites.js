@@ -1,8 +1,10 @@
 import React, {useContext} from 'react';
 import {View, FlatList, Button, Text} from 'react-native';
+
+import { MarvelContext } from '../../context/MarvelContext/MarvelProvider';
 import CharFavorites from '../../components/Favorites/CharFavorites';
 import ComicFavorites from '../../components/Favorites/ComicFavorites';
-import {MarvelContext} from '../../context/MarvelContext/MarvelProvider';
+import styles from './FavoritesStyle';
 
 export default function Favorites() {
   const {state} = useContext(MarvelContext);
@@ -11,7 +13,7 @@ export default function Favorites() {
   const renderComic = ({item}) => <ComicFavorites comic={item} />;
 
   return (
-    <View>
+    <View style={styles.container}>
       <Text>Charater</Text>
       <FlatList data={state.char_Favorites} renderItem={renderFavorites} />
       <Text>Comic</Text>

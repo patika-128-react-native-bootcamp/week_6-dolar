@@ -1,9 +1,12 @@
 import React, {useState, useEffect} from 'react';
 import {View, Text, FlatList, Button} from 'react-native';
+
+import { useNavigation } from '@react-navigation/native';
+import axios from 'axios';
+
 import CharacterCard from '../../components/CharacterCard';
 import Search from '../../components/Search';
-import axios from 'axios';
-import {useNavigation} from '@react-navigation/native';
+import styles from './MainStyle';
 
 const hash = '0519bdb5cdd72539b81dfca9cca4dd5b';
 
@@ -49,7 +52,7 @@ const Main = () => {
   );
 
   return (
-    <View>
+    <View style={styles.container}>
       <Button title="Favorites" onPress={() => handleFavorites()} />
       <Search onSearch={onSearch} />
       <FlatList data={items} renderItem={renderChar} />

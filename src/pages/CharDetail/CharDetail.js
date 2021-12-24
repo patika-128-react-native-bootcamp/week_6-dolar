@@ -1,8 +1,10 @@
-import {useRoute} from '@react-navigation/native';
-import axios from 'axios';
 import React, {useEffect, useState} from 'react';
-import {View, FlatList} from 'react-native';
+import { View, FlatList } from 'react-native';
+import { useRoute } from '@react-navigation/native';
+
+import axios from 'axios';
 import ComicsCard from '../../components/ComicsCard/ComicsCard';
+import styles from './CharDetailStyle';
 
 const hash = '0519bdb5cdd72539b81dfca9cca4dd5b';
 
@@ -34,7 +36,7 @@ export default function CharDetail() {
   const renderComics = ({item}) => <ComicsCard comic={item} />;
 
   return (
-    <View>
+    <View style={styles.container}>
       <FlatList data={details} renderItem={renderComics} />
     </View>
   );

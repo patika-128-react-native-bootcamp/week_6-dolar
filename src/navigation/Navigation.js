@@ -1,19 +1,43 @@
 import React from 'react';
 import {NavigationContainer} from '@react-navigation/native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
+import { createDrawerNavigator } from '@react-navigation/drawer';
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+
 import Main from '../pages/Main';
-import Favorites from '../pages/Favorites/Favorites';
 import CharDetail from '../pages/CharDetail/CharDetail';
+import FavoritesComic from '../pages/Favorites/FavoritesComic';
+import FavoritesHero from '../pages/Favorites/FavoritesHero';
 
 const Stack = createNativeStackNavigator();
+const Drawer = createDrawerNavigator();
+const Tab = createBottomTabNavigator();
+
+const HomePage = () => {
+  return (
+    <Drawer.Navigator>
+      <Drawer.Screen name="Main" component={Main} />
+      <Drawer.Screen name="Favorite Page" component={FavoritePage} />
+    </Drawer.Navigator>
+  );
+}
+
+const FavoritePage = () => {
+  return (
+    <Tab.Navigator>
+      <Tab.Screen name="Favorites Hero" component={FavoritesHero} />
+      <Tab.Screen name="Favorites Comic" component={FavoritesComic} />
+    </Tab.Navigator>
+  );
+}
 
 export default function Navigation() {
   return (
     <NavigationContainer>
       <Stack.Navigator>
-        <Stack.Screen name="Main" component={Main} />
+        <Stack.Screen name="Home" component={HomePage} />
         <Stack.Screen name="CharDetailPage" component={CharDetail} />
-        <Stack.Screen name="Favorites" component={Favorites} />
+        <Stack.Screen name="Favorite Page" component={FavoritePage} />
       </Stack.Navigator>
     </NavigationContainer>
   );

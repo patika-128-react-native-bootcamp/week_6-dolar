@@ -1,7 +1,8 @@
-import React, {useEffect, useState} from 'react';
+import React from 'react';
 import { View, FlatList } from 'react-native';
 import { useRoute } from '@react-navigation/native';
 
+import useComic from '../../hooks/useComic';
 import axios from 'axios';
 import ComicsCard from '../../components/ComicsCard/ComicsCard';
 import styles from './CharDetailStyle';
@@ -12,28 +13,17 @@ export default function CharDetail() {
   const route = useRoute();
   const id = route.params.id;
 
-  const [details, setDetails] = useState([]);
-  const [error, setError] = useState(null);
-  const [loading, setLoading] = useState(true);
+  const { loading, data, error } = useComic(`http://gateway.marvel.com/v1/public/characters/${id}/comics?ts=1&apikey=1e4c7fa786a6b13494126a8d82f41974&hash=${hash}`, id)
 
-  async function fetchData() {
-    try {
-      const response = await axios.get(
-        `http://gateway.marvel.com/v1/public/characters/${id}/comics?ts=1&apikey=1e4c7fa786a6b13494126a8d82f41974&hash=${hash}`,
-      );
-      setDetails(response.data.data.results);
-    } catch (error) {
-      setError(error);
-    } finally {
-      setLoading(false);
-    }
+  const renderComics = ({ item }) => <ComicsCard comic={item} />;
+
+  if (loading) {
+    return <ActivityIndicator size="large" color="red" />
   }
 
-  useEffect(() => {
-    fetchData();
-  }, []);
-
-  const renderComics = ({item}) => <ComicsCard comic={item} />;
+  if (error) {
+    return <Text>Error {error}</Text>
+  }
 
   return (
     <View style={styles.container}>

@@ -1,4 +1,4 @@
-import React, {createContext, useReducer} from 'react';
+import React, {createContext, useEffect, useReducer, useState} from 'react';
 import MarvelReducer from './MarvelReducer';
 import MarvelStore from './MarvelStore';
 
@@ -6,7 +6,6 @@ export const MarvelContext = createContext();
 
 export default function MarvelProvider({children}) {
   const [state, dispatch] = useReducer(MarvelReducer, MarvelStore);
-
 
   return (
     <MarvelContext.Provider
@@ -18,3 +17,6 @@ export default function MarvelProvider({children}) {
     </MarvelContext.Provider>
   );
 }
+
+
+

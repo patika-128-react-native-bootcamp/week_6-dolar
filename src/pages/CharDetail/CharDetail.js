@@ -1,12 +1,12 @@
 import React from 'react';
-import { View, FlatList } from 'react-native';
+import { View, FlatList, ActivityIndicator } from 'react-native';
 import { useRoute } from '@react-navigation/native';
 
 import useComic from '../../hooks/useComic';
 import axios from 'axios';
 import ComicsCard from '../../components/ComicsCard/ComicsCard';
 import styles from './CharDetailStyle';
-
+ 
 const hash = '0519bdb5cdd72539b81dfca9cca4dd5b';
 
 export default function CharDetail() {
@@ -27,7 +27,7 @@ export default function CharDetail() {
 
   return (
     <View style={styles.container}>
-      <FlatList data={details} renderItem={renderComics} />
+      <FlatList data={data} renderItem={renderComics} />
     </View>
   );
 }

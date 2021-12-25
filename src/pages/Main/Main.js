@@ -16,7 +16,7 @@ const Main = () => {
   const navigation = useNavigation(); 
   const [query, setQuery] = useState('');
 
-  const { loading, data, error } = useFetch(`http://gateway.marvel.com/v1/public/characters?nameStartsWith=${query}&ts=1&apikey=1e4c7fa786a6b13494126a8d82f41974&hash=${hash}`, query);
+  const { loading, data, error } = useFetch(`http://gateway.marvel.com/v1/public/characters?nameStartsWith=${query}&ts=1&apikey=1e4c7fa786a6b13494126a8d82f41974&hash=${hash}`,query );
 
   const handleCharSelect = item => {
     navigation.navigate('CharDetailPage', {id: item.id});
@@ -38,16 +38,13 @@ const Main = () => {
     return <ActivityIndicator size="large" color="red" />
   }
 
-  if (error) {
-    return <Text>Error {error}</Text>
-  }
-  console.log(error);
+  // if (error) {
+  //   return <Text>Error {error}</Text>
+  // }
   return (
     <View style={styles.container}>
-      <Button title="Favorites" onPress={() => handleFavorites()} />
-      <Search onSearch={onSearch} />
+      <Search onSearch={onSearch} placeholder="Kahraman Ara..." />
       <FlatList data={data} renderItem={renderChar} />
-      <Text>Main Page</Text>
     </View>
   );
 };

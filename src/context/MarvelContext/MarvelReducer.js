@@ -1,4 +1,5 @@
 const MarvelReducer = (state, action) => {
+  console.log(action.type);
   switch (action.type) {
     case 'ADD_CHAR': {
       const selectedChar = action.payload.char;
@@ -38,7 +39,6 @@ const MarvelReducer = (state, action) => {
 
       return {...state, comic_Favorites: UpdatedFavoritesList};
     }
-  
 
     default:
       return state;

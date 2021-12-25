@@ -8,7 +8,7 @@ export const MarvelContext = createContext();
 export default function MarvelProvider({children}) {
   const [state, dispatch] = useReducer(MarvelReducer, MarvelStore);
 
-  const {char_Favorites} = state;
+  const { char_Favorites, comic_Favorites } = state;
 
   const getData = async () => {
     try {
@@ -19,8 +19,18 @@ export default function MarvelProvider({children}) {
     }
   };
 
+  const getComic = async () => {
+    try {
+      const jsonValue = await AsyncStorage.getItem('@comic');
+      return jsonValue != null ? dispatch({ type: "SET_DATA", payload: JSON.parse(jsonValue) }) : null;
+    } catch (e) {
+      // error reading value
+    }
+  };
+
   useEffect(() => {
     getData()
+    getComic()
   }, [])
 
   const storeData = async char_Favorites => {
@@ -32,8 +42,18 @@ export default function MarvelProvider({children}) {
     }
   };
 
+  const storeComic = async comic_Favorites => {
+    try {
+      const jsonValue = JSON.stringify(comic_Favorites);
+      await AsyncStorage.setItem('@comic', jsonValue);
+    } catch (e) {
+      // saving error
+    }
+  };
+
   useEffect(() => {
     storeData(char_Favorites);
+    storeComic(comic_Favorites);
   }, [state]);
 
   return (

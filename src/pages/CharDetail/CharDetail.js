@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { View, FlatList, ActivityIndicator } from 'react-native';
 import { useRoute } from '@react-navigation/native';
 
@@ -6,10 +6,14 @@ import useComic from '../../hooks/useComic';
 import axios from 'axios';
 import ComicsCard from '../../components/ComicsCard/ComicsCard';
 import styles from './CharDetailStyle';
+import { ThemeContext } from '../../context/ThemeContext/ThemeProvider';
+
+import DarkMode from '../../style/DarkMode'
  
 const hash = '0519bdb5cdd72539b81dfca9cca4dd5b';
 
 export default function CharDetail() {
+  const {theme} = useContext(ThemeContext)
   const route = useRoute();
   const id = route.params.id;
 
@@ -26,7 +30,7 @@ export default function CharDetail() {
   }
 
   return (
-    <View style={styles.container}>
+    <View style={theme == "dark" ? DarkMode.container : styles.container}>
       <FlatList data={data} renderItem={renderComics} />
     </View>
   );

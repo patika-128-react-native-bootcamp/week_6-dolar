@@ -16,7 +16,7 @@ const Tab = createBottomTabNavigator();
 
 const HomePage = () => {
   return (
-    <Drawer.Navigator>
+    <Drawer.Navigator screenOptions={{ headerShown: false }} >
       <Drawer.Screen name="Main" component={Main} />
       <Drawer.Screen name="Favorite Page" component={FavoritePage} />
       <Drawer.Screen name="Settings" component={Settings} />
@@ -36,7 +36,7 @@ const FavoritePage = () => {
 export default function Navigation() {
   return (
     <NavigationContainer>
-      <Stack.Navigator>
+      <Stack.Navigator screenOptions={{ headerShown: false }} >
         <Stack.Screen name="Home" component={HomePage} />
         <Stack.Screen name="CharDetailPage" component={CharDetail} />
         <Stack.Screen name="Favorite Page" component={FavoritePage} />

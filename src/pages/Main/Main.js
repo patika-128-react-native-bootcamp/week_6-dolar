@@ -40,7 +40,9 @@ const Main = () => {
   }
 
   return (
-    <View style={theme == "dark" ? DarkMode.container : styles.container  }>
+
+
+    <View style={theme == "dark" ? DarkMode.container : styles.container}>
       <Search onSearch={onSearch} placeholder="Kahraman Ara..." />
       <FlatList data={data} renderItem={renderChar} />
     </View>

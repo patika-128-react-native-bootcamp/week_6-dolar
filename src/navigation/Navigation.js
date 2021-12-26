@@ -9,6 +9,7 @@ import CharDetail from '../pages/CharDetail/CharDetail';
 import FavoritesComic from '../pages/Favorites/FavoritesComic';
 import FavoritesHero from '../pages/Favorites/FavoritesHero';
 import Settings from '../pages/Settings';
+import ComicHero from '../pages/ComicHero/ComicHero';
 
 const Stack = createNativeStackNavigator();
 const Drawer = createDrawerNavigator();
@@ -40,6 +41,7 @@ export default function Navigation() {
         <Stack.Screen name="Home" component={HomePage} />
         <Stack.Screen name="CharDetailPage" component={CharDetail} />
         <Stack.Screen name="Favorite Page" component={FavoritePage} />
+        <Stack.Screen name="ComicHero" component={ComicHero} />
       </Stack.Navigator>
     </NavigationContainer>
   );

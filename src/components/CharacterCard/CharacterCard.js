@@ -10,7 +10,7 @@ import {MarvelContext} from '../../context/MarvelContext/MarvelProvider';
 import style from './CharacterCardStyle';
 
 const CharacterCard = ({char, onPress}) => {
-  const {dispatch, state} = useContext(MarvelContext);
+  const {dispatch, state} = useContext(MarvelContext); 
 
   let storedFav = state.char_Favorites.find(f => f.id === char.id);
   const isAdded = storedFav ? true : false;

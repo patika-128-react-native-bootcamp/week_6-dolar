@@ -2,7 +2,7 @@ import React, { useContext } from 'react';
 import { View, FlatList, ActivityIndicator } from 'react-native';
 import { useRoute } from '@react-navigation/native';
 
-import useComic from '../../hooks/useComic';
+import useFetch from '../../hooks/useFetch';
 import axios from 'axios';
 import ComicsCard from '../../components/ComicsCard/ComicsCard';
 import styles from './CharDetailStyle';
@@ -17,7 +17,7 @@ export default function CharDetail() {
   const route = useRoute();
   const id = route.params.id;
 
-  const { loading, data, error } = useComic(`http://gateway.marvel.com/v1/public/characters/${id}/comics?ts=1&apikey=1e4c7fa786a6b13494126a8d82f41974&hash=${hash}`, id)
+  const { loading, data, error } = useFetch(`http://gateway.marvel.com/v1/public/characters/${id}/comics?ts=1&apikey=1e4c7fa786a6b13494126a8d82f41974&hash=${hash}`, id)
 
   const renderComics = ({ item }) => <ComicsCard comic={item} />;
 

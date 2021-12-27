@@ -25,5 +25,5 @@ export default function ComicFavorites({comic}) {
         </View>
       </View>
     </TouchableOpacity>
-  );
+  ); 
 }

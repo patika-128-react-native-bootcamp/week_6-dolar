@@ -12,14 +12,15 @@ export default function CharFavorites({char}) {
 
   const img = char.thumbnail.path + '/portrait_small.jpg';
 
+  console.log(char)
   return (
     <TouchableOpacity>
       <View style={style.container}>
         <Image style={style.image} source={{uri: img}} />
         <View style={style.button}>
-          <Text style={style.name}> {char.name}</Text>
+          <Text style={style.name}> {char.title}</Text>
           <Button
-            title="delete to favorites"
+            title="delete to favoritessssdasdsad"
             onPress={() => handleRemove(char.id)}
           />
         </View>
@@ -27,3 +28,4 @@ export default function CharFavorites({char}) {
     </TouchableOpacity>
   );
 }
+

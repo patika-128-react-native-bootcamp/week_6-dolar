@@ -38,5 +38,5 @@ export default function ComicsCard({comic}) {
         </View>
       </View>
     </TouchableOpacity>
-  );
+  ); 
 }

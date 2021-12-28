@@ -6,17 +6,10 @@ import constants from '../../configs/constants';
 import styles from './ComicHeroStyle';
 import DarkMode from '../../style/DarkMode';
 import ComicHeroCard from '../../components/ComicHeroCard';
-<<<<<<< HEAD
 import { ThemeContext } from '../../context/ThemeContext/ThemeProvider';
 import { useRoute } from '@react-navigation/native';
 
 const { comic_baseUrl, ts, apiKey, hash } = constants;
-=======
-import {ThemeContext} from '../../context/ThemeContext/ThemeProvider';
-import {useRoute} from '@react-navigation/native';
-
-const {comic_baseUrl, ts, apiKey, hash} = constants;
->>>>>>> cc173131b026c1971e1d449e9c431bd5e991e988
 
 const ComicHero = () => {
   const route = useRoute();

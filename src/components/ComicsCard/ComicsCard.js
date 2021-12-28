@@ -19,7 +19,7 @@ export default function ComicsCard({comic}) {
   const handlePress = id => {
     navigation.navigate('ComicHero', {id});
   };
-  console.log(isAdded);
+
   return (
     <Card
       onPress={() => handlePress(comic.id)}

@@ -16,9 +16,9 @@ const Card = ({ onPress, name, isAdded, handleButton, img, disabled }) => {
     <TouchableWithoutFeedback onPress={onPress}>
       <View style={style.container}>
         <Image style={style.image} source={{uri: img}} />
-        <View style={style.button}>
+        <View style={style.inner_container}>
           <Text style={style.name}>{name}</Text>
-          <View style={style.button}>
+          <View style={style.button_view}>
             <Pressable onPress={handleButton} disabled={disabled}>
               <Icon
                 name={isAdded ? "heart" : "heart-outline"}

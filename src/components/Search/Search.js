@@ -5,7 +5,7 @@ import {Text, TextInput, View} from 'react-native';
 import styles from './SearchStyle';
 
 const Search = ({placeholder, onSearch}) => {
-  const {t, i18n} = useTranslation();
+  const {t} = useTranslation();
   const [text, setText] = useState();
 
   const handleText = e => {
@@ -14,13 +14,14 @@ const Search = ({placeholder, onSearch}) => {
   };
 
   return (
-    <View style={{margin: 10}}>
-      <Text>{t('WelcomeText')}</Text>
-
+    <View>
       <View style={styles.container}>
+        <Text style={styles.text}>{t('WelcomeText')}</Text>
+      </View>
+      <View style={styles.inner_container}>
         <TextInput
-          style={styles.input}
           placeholder={placeholder}
+          placeholderTextColor="#000" 
           onChangeText={e => handleText(e)}
         />
       </View>

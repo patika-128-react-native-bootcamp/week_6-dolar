@@ -1,4 +1,5 @@
 // const ThemeReducer = (state, action) => {
+//   console.log(action.type)
 //   switch (action.type) {
 //     case 'SET_THEME':
 //       return {
@@ -10,5 +11,5 @@
 //       return state;
 //   }
 // };
-
+ 
 // export default ThemeReducer

@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, {useContext} from 'react';
 import {View, FlatList, ActivityIndicator} from 'react-native';
 
 import useFetch from '../../hooks/useFetch';
@@ -9,6 +9,8 @@ import ComicHeroCard from '../../components/ComicHeroCard';
 import { ThemeContext } from '../../context/ThemeContext/ThemeProvider';
 import { useRoute } from '@react-navigation/native';
 
+
+
 const ComicHero = () => {
   const route = useRoute();
   const id = route.params.id;
@@ -16,7 +18,7 @@ const ComicHero = () => {
 
   const {theme} = useContext(ThemeContext)
   const {loading, data, error} = useFetch(
-    `${constants.comic_baseUrl}${id}/characters?ts=${constants.ts}&apikey=${constants.apiKey}&hash=${constanst.hash}`,
+    `${constants.comic_baseUrl}${id}/characters?ts=${constants.ts}&apikey=${constants.apiKey}&hash=${constants.hash}`,
     id,
   );
 
@@ -27,10 +29,6 @@ const ComicHero = () => {
   if (loading) {
     return <ActivityIndicator size="large" color="red" />;
   }
-
-  // if (error) {
-  //   return <Text>{error}</Text>
-  // }
 
   console.log(data)
 

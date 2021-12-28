@@ -1,9 +1,11 @@
 import React, {useState} from 'react';
-import {TextInput, View} from 'react-native';
+import {useTranslation} from 'react-i18next';
+import {Text, TextInput, View} from 'react-native';
 
 import styles from './SearchStyle';
 
 const Search = ({placeholder, onSearch}) => {
+  const {t, i18n} = useTranslation();
   const [text, setText] = useState();
 
   const handleText = e => {
@@ -12,12 +14,16 @@ const Search = ({placeholder, onSearch}) => {
   };
 
   return (
-    <View style={styles.container}>
-      <TextInput
-        style={styles.input}
-        placeholder={placeholder}
-        onChangeText={e => handleText(e)}
-      />
+    <View style={{margin: 10}}>
+      <Text>{t('WelcomeText')}</Text>
+
+      <View style={styles.container}>
+        <TextInput
+          style={styles.input}
+          placeholder={placeholder}
+          onChangeText={e => handleText(e)}
+        />
+      </View>
     </View>
   );
 };

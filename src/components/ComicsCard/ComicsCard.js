@@ -1,13 +1,10 @@
-import { useNavigation } from '@react-navigation/native';
+import {useNavigation} from '@react-navigation/native';
 import React, {useContext} from 'react';
-import {View, Text, Image, Button, TouchableOpacity} from 'react-native';
 import {MarvelContext} from '../../context/MarvelContext/MarvelProvider';
-
-import style from './ComicCard.style';
+import Card from '../Card';
 
 export default function ComicsCard({comic}) {
-
-  const navigation = useNavigation(); 
+  const navigation = useNavigation();
   const {dispatch, state} = useContext(MarvelContext);
 
   let storedFav = state.comic_Favorites.find(f => f.id === comic.id);
@@ -24,19 +21,27 @@ export default function ComicsCard({comic}) {
   };
 
   return (
-    <TouchableOpacity onPress={() => handlePress(comic.id)} >
-      <View style={style.container}>
-        <Image style={style.image} source={{uri: img}} />
-        <View>
-          <Text style={style.title}> {comic.title}</Text>
-          <Text style={style.title}> {comic.id}</Text>
-          <Button
-            disabled={isAdded}
-            title="add to favorites"
-            onPress={() => handleComic(comic)}
-          />
-        </View>
-      </View>
-    </TouchableOpacity>
-  ); 
+    <Card
+      onPress={() => handlePress(comic.id)}
+      img={img}
+      name={comic.title}
+      buttonTitle="add to favorites"
+      handleButton={() => handleComic(comic)}
+      isAdded={isAdded}
+    />
+  );
 }
+
+// <TouchableOpacity onPress={() => handlePress(comic.id)}>
+//   <View style={style.container}>
+//     <Image style={style.image} source={{uri: img}} />
+//     <View>
+//       <Text style={style.title}> {comic.title}</Text>
+//       <Button
+//         disabled={isAdded}
+//         title="add to favorites"
+//         onPress={() => handleComic(comic)}
+//       />
+//     </View>
+//   </View>
+// </TouchableOpacity>;

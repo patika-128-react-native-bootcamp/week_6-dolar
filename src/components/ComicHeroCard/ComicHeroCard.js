@@ -2,9 +2,7 @@ import React from 'react';
 import {View, Text, Image} from 'react-native';
 import style from './ComicHeroCardStyle';
 
-const ComicHeroCard = (char) => {
-
-  console.log(char.name)
+const ComicHeroCard = ({char}) => {
   const img = char.thumbnail.path + '/portrait_small.jpg';
   return (
     <View style={style.container}>

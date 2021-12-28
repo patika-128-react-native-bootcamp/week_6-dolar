@@ -9,6 +9,7 @@ import styles from './CharDetailStyle';
 import { ThemeContext } from '../../context/ThemeContext/ThemeProvider';
 
 import DarkMode from '../../style/DarkMode'
+ 
 
 export default function CharDetail() {
   const {theme} = useContext(ThemeContext)

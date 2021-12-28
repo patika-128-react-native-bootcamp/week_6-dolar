@@ -1,5 +1,5 @@
 import React, { useContext, useState } from 'react';
-import { View, FlatList, ActivityIndicator } from 'react-native';
+import { View, FlatList,  ActivityIndicator } from 'react-native';
 
 import { useNavigation } from '@react-navigation/native';
 
@@ -11,6 +11,9 @@ import styles from './MainStyle';
 import { constants } from '../../configs/constants';
 import { ThemeContext } from '../../context/ThemeContext/ThemeProvider';
 import DarkMode from '../../style/DarkMode'
+
+
+
 
 const Main = () => {
   const navigation = useNavigation(); 
@@ -36,10 +39,6 @@ const Main = () => {
   if (loading) {
     return <ActivityIndicator size="large" color="red" />
   }
-
-  // if (error) {
-  //   return <Text>{error}</Text>
-  // }
 
   return (
 

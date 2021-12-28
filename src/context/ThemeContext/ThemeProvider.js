@@ -1,23 +1,34 @@
-import React, {createContext, useEffect, useState} from 'react';
+import React, {createContext, useEffect, useReducer, useState} from 'react';
 import {Appearance} from 'react-native';
+import ThemeReducer from './ThemeReducer';
+import ThemeStore from './ThemeStore';
 
 export const ThemeContext = createContext();
 
-export default function ThemeProvider({children}) {
-  const [theme, setTheme] = useState(Appearance.getColorScheme());
+export default function ThemeProvider({children}) { 
 
-  useEffect(() => {
-    Appearance.addChangeListener(scheme => {
-      setTheme(scheme.colorScheme);
-    });
-  }, [theme]);
+  const [state, dispatch] = useReducer(ThemeReducer, ThemeStore);
 
+  const {theme} = state
+
+
+  
+ 
+  // useEffect(() => {
+  //   Appearance.addChangeListener(scheme => {
+  //     setTheme(scheme.colorScheme);
+  //   });
+  // }, [theme]);
+
+
+  // Appearance.getColorScheme()
   return (
     <ThemeContext.Provider
       value={{
         theme,
+        dispatch
       }}>
       {children}
     </ThemeContext.Provider>
   );
-}
+} 

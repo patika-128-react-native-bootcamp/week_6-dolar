@@ -13,7 +13,7 @@ export default function MarvelProvider({children}) {
   const getData = async () => {
     try {
       const jsonValue = await AsyncStorage.getItem('@char');
-      return jsonValue != null ? dispatch({type:"SET_DATA", payload: JSON.parse(jsonValue)})  : null;
+      return jsonValue != null ? dispatch({type:"SET_CHAR", payload: JSON.parse(jsonValue)})  : null;
     } catch (e) {
       // error reading value
     }
@@ -22,7 +22,7 @@ export default function MarvelProvider({children}) {
   const getComic = async () => {
     try {
       const jsonValue = await AsyncStorage.getItem('@comic');
-      return jsonValue != null ? dispatch({ type: "SET_DATA", payload: JSON.parse(jsonValue) }) : null;
+      return jsonValue != null ? dispatch({ type: "SET_COMIC", payload: JSON.parse(jsonValue) }) : null;
     } catch (e) {
       // error reading value
     }

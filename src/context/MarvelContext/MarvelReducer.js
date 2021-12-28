@@ -1,11 +1,17 @@
 const MarvelReducer = (state, action) => {
+  console.log(action.type);
   switch (action.type) {
-    case 'SET_DATA':
+    case 'SET_CHAR':
       return {
         ...state,
         char_Favorites: action.payload,
+      };
+    case 'SET_COMIC':
+      return {
+        ...state,
         comic_Favorites: action.payload,
-      }
+      };
+
     case 'ADD_CHAR': {
       const selectedChar = action.payload.char;
 

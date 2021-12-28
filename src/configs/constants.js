@@ -7,6 +7,6 @@ const constants = {
     ts: 1
 }
 
-export { constants };
+export default constants;
 
 // http://gateway.marvel.com/v1/public/characters?nameStartsWith=${query}&ts=1&apikey=1e4c7fa786a6b13494126a8d82f41974&hash=${hash}

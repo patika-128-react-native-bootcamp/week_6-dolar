@@ -1,5 +1,5 @@
 const MarvelReducer = (state, action) => {
-  console.log(action.type);
+
   switch (action.type) {
     case 'SET_CHAR':
       return {

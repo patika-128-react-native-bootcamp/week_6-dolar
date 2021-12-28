@@ -8,12 +8,9 @@ import useFetch from '../../hooks/useFetch';
 import CharacterCard from '../../components/CharacterCard';
 import Search from '../../components/Search';
 import styles from './MainStyle';
-import { constants } from '../../configs/constants';
+import constants from '../../configs/constants';
 import { ThemeContext } from '../../context/ThemeContext/ThemeProvider';
 import DarkMode from '../../style/DarkMode'
-
-
-
 
 const Main = () => {
   const navigation = useNavigation(); 

@@ -12,13 +12,15 @@ import constants from '../../configs/constants';
 import { ThemeContext } from '../../context/ThemeContext/ThemeProvider';
 import DarkMode from '../../style/DarkMode'
 
+const {baseUrl,ts,apiKey,hash} = constants
+
 const Main = () => {
   const navigation = useNavigation(); 
   const [query, setQuery] = useState('');
 
   const { theme } = useContext(ThemeContext)
 
-  const { loading, data, error } = useFetch(`${constants.baseUrl}${query}&ts=${constants.ts}&apikey=${constants.apiKey}&hash=${constants.hash}`, query);
+  const { loading, data } = useFetch(`${baseUrl}${query}${ts}${apiKey}${hash}`, query);
 
   const handleCharSelect = item => {
     navigation.navigate('CharDetailPage', {id: item.id});

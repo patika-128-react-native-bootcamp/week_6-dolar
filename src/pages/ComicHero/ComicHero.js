@@ -1,15 +1,13 @@
-import React, {useContext, useState} from 'react';
+import React, { useContext } from 'react';
 import {View, FlatList, ActivityIndicator} from 'react-native';
 
 import useFetch from '../../hooks/useFetch';
-import CharacterCard from '../../components/CharacterCard';
+import { constants } from '../../configs/constants';
 import styles from './ComicHeroStyle';
 import DarkMode from '../../style/DarkMode';
 import ComicHeroCard from '../../components/ComicHeroCard';
 import { ThemeContext } from '../../context/ThemeContext/ThemeProvider';
 import { useRoute } from '@react-navigation/native';
-
-const hash = '0519bdb5cdd72539b81dfca9cca4dd5b';
 
 const ComicHero = () => {
   const route = useRoute();
@@ -18,7 +16,7 @@ const ComicHero = () => {
 
   const {theme} = useContext(ThemeContext)
   const {loading, data, error} = useFetch(
-    `http://gateway.marvel.com/v1/public/comics/${id}/characters?ts=1&apikey=1e4c7fa786a6b13494126a8d82f41974&hash=${hash}`,
+    `${constants.comic_baseUrl}${id}/characters?ts=${constants.ts}&apikey=${constants.apiKey}&hash=${constanst.hash}`,
     id,
   );
 
@@ -29,6 +27,10 @@ const ComicHero = () => {
   if (loading) {
     return <ActivityIndicator size="large" color="red" />;
   }
+
+  // if (error) {
+  //   return <Text>{error}</Text>
+  // }
 
   console.log(data)
 

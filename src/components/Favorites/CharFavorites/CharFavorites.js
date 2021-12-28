@@ -3,7 +3,10 @@ import {MarvelContext} from '../../../context/MarvelContext/MarvelProvider';
 import Card from '../../Card';
 
 export default function CharFavorites({char}) {
-  const {dispatch} = useContext(MarvelContext);
+  const { dispatch, state } = useContext(MarvelContext);
+
+  let storedFav = state.char_Favorites.find(f => f.id === char.id);
+  const isAdded = storedFav ? true : false;
 
   const handleRemove = id => {
     dispatch({type: 'REMOVE_CHAR', payload: {id}});
@@ -16,7 +19,10 @@ export default function CharFavorites({char}) {
       img={img}
       name={char.name}
       buttonTitle="Delete to Favorites"
-      handleButton={() => handleRemove(char.id)}
+      handleButton={() => handleRemove(char.id)
+      }
+      isAdded={isAdded}
+      disabled={!isAdded}
     />
   );
 }

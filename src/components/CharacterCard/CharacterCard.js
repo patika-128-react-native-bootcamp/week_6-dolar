@@ -19,9 +19,9 @@ const CharacterCard = ({char, onPress}) => {
       onPress={onPress}
       img={img}
       name={char.name}
-      buttonTitle="add to favorites"
       handleButton={() => handleChar(char)}
       isAdded={isAdded}
+      disabled={isAdded}
     />
   );
 };

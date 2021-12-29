@@ -37,12 +37,17 @@ const HomePage = () => {
         options={{
           title: 'Menü',
           headerTitleStyle: { color: '#616161' },
-          drawerLabel: 'Favorite Page',
+          drawerLabel: 'Favoriler',
         }}
       />
       <Drawer.Screen
         name="Settings"
         component={Settings}
+        options={{
+          title: 'Menü',
+          headerTitleStyle: { color: '#616161' },
+          drawerLabel: 'Ayarlar',
+        }}
       />
     </Drawer.Navigator>
   );

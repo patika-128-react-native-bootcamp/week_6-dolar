@@ -8,6 +8,7 @@ import ComicsCard from '../../components/ComicsCard/ComicsCard';
 import styles from './CharDetailStyle';
 import { ThemeContext } from '../../context/ThemeContext/ThemeProvider';
 import DarkMode from '../../style/DarkMode'
+import Header from '../../components/Header';
 
 const { charDetail_baseUrl, ts, apiKey, hash } = constants;
 
@@ -31,6 +32,7 @@ export default function CharDetail() {
 
   return (
     <View style={theme == 'dark' ? DarkMode.container : styles.container}>
+      <Header />
       <FlatList data={data} renderItem={renderComics} />
     </View>
   );

@@ -1,8 +1,11 @@
 import React from 'react';
+import { View, Text, ImageBackground } from 'react-native';
+
 import { useTranslation } from 'react-i18next';
-import { View, Text } from 'react-native';
 import SwitchSelector from 'react-native-switch-selector';
 import style from './SettingStyle'
+import Header from '../../components/Header';
+
 const options = [
   { label: 'English', value: 'en' },
   { label: 'French', value: 'fr' },
@@ -15,6 +18,7 @@ const Settings = () => {
 
   return (
     <View style={style.container}>
+      <Header />
       <Text style={style.text}>Language Settings </Text>
       <SwitchSelector
         options={options}
@@ -23,6 +27,7 @@ const Settings = () => {
           i18n.changeLanguage(lang);
         }}
       />
+      <ImageBackground style={style.background} source={require('../../assets/heros.png')} resizeMode='contain' /> 
     </View>
   );
 };

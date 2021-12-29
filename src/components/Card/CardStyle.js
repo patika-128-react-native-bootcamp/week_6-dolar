@@ -2,14 +2,16 @@ import {StyleSheet} from 'react-native';
 
 export default StyleSheet.create({
   container: {
-    marginVertical: 5,
-    borderWidth: 1,
+    margin: 5,
+    borderWidth: 2,
     borderColor: '#bdbdbd',
+    backgroundColor: '#ffc400',
     borderRadius: 5,
     padding: 3,
     flexDirection: 'row',
   },
   inner_container: {
+    flex: 1,
     justifyContent: 'space-around',
   },
   image: {
@@ -17,10 +19,11 @@ export default StyleSheet.create({
     height: 130,
   },
   name: {
-    color: '#0288d1',
+    color: '#616161',
     fontWeight: 'bold',
     fontSize: 20,
-    marginLeft: 5,
+    fontFamily: 'Avenir-Medium',
+    marginLeft: 15,
   },
   button_view: {
     marginLeft: 10,

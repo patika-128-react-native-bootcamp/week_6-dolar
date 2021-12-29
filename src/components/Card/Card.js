@@ -17,13 +17,13 @@ const Card = ({ onPress, name, isAdded, handleButton, img, disabled }) => {
       <View style={style.container}>
         <Image style={style.image} source={{uri: img}} />
         <View style={style.inner_container}>
-          <Text style={style.name}>{name}</Text>
+          <Text style={style.name}>{name}</Text>  
           <View style={style.button_view}>
             <Pressable onPress={handleButton} disabled={disabled}>
               <Icon
                 name={isAdded ? "heart" : "heart-outline"}
                 size={32}
-                color={isAdded ? "red" : "black"}
+                color={isAdded ? "#D65F5f" : "black"}
               />
             </Pressable>
           </View>

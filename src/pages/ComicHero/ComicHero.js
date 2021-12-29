@@ -8,6 +8,7 @@ import DarkMode from '../../style/DarkMode';
 import ComicHeroCard from '../../components/ComicHeroCard';
 import { ThemeContext } from '../../context/ThemeContext/ThemeProvider';
 import { useRoute } from '@react-navigation/native';
+import Header from '../../components/Header';
 
 const { comic_baseUrl, ts, apiKey, hash } = constants;
 
@@ -29,6 +30,7 @@ const ComicHero = () => {
 
   return (
     <View style={theme == 'dark' ? DarkMode.container : styles.container}>
+      <Header />
       <FlatList data={data} renderItem={renderChar} />
     </View>
   );

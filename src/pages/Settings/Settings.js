@@ -8,10 +8,10 @@ import style from './SettingStyle'
 import Header from '../../components/Header';
 
 const options = [
+  { label: 'Turkish', value: 'tr' },
   { label: 'English', value: 'en' },
   { label: 'French', value: 'fr' },
   { label: 'Italian', value: 'it' },
-  { label: 'Turkish', value: 'tr' },
 ];
 
 const Settings = () => {

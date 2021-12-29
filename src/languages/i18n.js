@@ -10,7 +10,7 @@ i18next.init({
 });
 
 i18next.use(initReactI18next).init({
-  lng: 'en',
+  lng: 'tr',
   resources: {
     en: english,
     it: italian,

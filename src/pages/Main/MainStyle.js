@@ -10,7 +10,7 @@ export default StyleSheet.create({
         resizeMode: 'contain',
         alignSelf: 'flex-end',
         flex: 1,
-
+        flexDirection: "column-reverse",
     }
 }
 );

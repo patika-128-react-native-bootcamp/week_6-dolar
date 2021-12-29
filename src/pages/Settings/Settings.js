@@ -1,6 +1,7 @@
 import React from 'react';
 import { View, Text, ImageBackground } from 'react-native';
 
+import FadingEdge from 'react-native-fading-edge';
 import { useTranslation } from 'react-i18next';
 import SwitchSelector from 'react-native-switch-selector';
 import style from './SettingStyle'
@@ -29,6 +30,7 @@ const Settings = () => {
       />
       <ImageBackground style={style.background} source={require('../../assets/heros.png')} resizeMode='contain' /> 
     </View>
+
   );
 };
 export default Settings;

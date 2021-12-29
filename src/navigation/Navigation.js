@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import {DarkTheme, DefaultTheme, NavigationContainer} from '@react-navigation/native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import { createDrawerNavigator } from '@react-navigation/drawer';
@@ -12,7 +12,6 @@ import Settings from '../pages/Settings';
 import ComicHero from '../pages/ComicHero/ComicHero';
 import { useColorScheme } from 'react-native';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
-import Icons from 'react-native-vector-icons/Ionicons';
 
 const Stack = createNativeStackNavigator();
 const Drawer = createDrawerNavigator();
@@ -63,7 +62,7 @@ const FavoritePage = () => {
           title: 'Favorites Hero',
           headerTitleStyle: { color: '#616161' },
           tabBarLabel: 'Hero',
-          tabBarIcon: () => <Icon name="shield" size={25} />
+          tabBarIcon: () => <Icon name="shield"  color= '#D65F5f' size={25} />
         }}
       />
       <Tab.Screen
@@ -73,7 +72,7 @@ const FavoritePage = () => {
           title: 'Favorites Comic',
           headerTitleStyle: { color: '#616161' },
           tabBarLabel: 'Comic',
-          tabBarIcon: () => <Icon name="book-open-page-variant" size={25} />
+          tabBarIcon: () => <Icon name="book-open-page-variant" color= '#D65F5f' size={25} />
         }}
       />
     </Tab.Navigator>
@@ -81,7 +80,6 @@ const FavoritePage = () => {
 }
 
 export default function Navigation() {
-  // const {theme} = useContext(ThemeContext)
   const scheme = useColorScheme();
   return (
     <NavigationContainer theme={scheme == "dark" ? DarkTheme: DefaultTheme }>

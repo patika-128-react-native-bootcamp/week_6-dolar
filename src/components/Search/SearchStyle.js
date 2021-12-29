@@ -19,5 +19,8 @@ export default StyleSheet.create({
     fontSize: 22,
     color: '#D65F5f',
     fontWeight: 'bold',
-  }
+  },
+  input: {
+    color: '#D65F5f',
+  },
 });

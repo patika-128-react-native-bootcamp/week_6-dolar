@@ -20,8 +20,9 @@ const Search = ({placeholder, onSearch}) => {
       </View>
       <View style={styles.inner_container}>
         <TextInput
+          style={styles.input}
           placeholder={placeholder}
-          placeholderTextColor="#000" 
+          placeholderTextColor="#000"
           onChangeText={e => handleText(e)}
         />
       </View>

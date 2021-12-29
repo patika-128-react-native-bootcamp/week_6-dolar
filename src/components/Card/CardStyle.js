@@ -5,7 +5,8 @@ export default StyleSheet.create({
     margin: 5,
     borderWidth: 2,
     borderColor: '#bdbdbd',
-    backgroundColor: '#ffc400',
+    backgroundColor: '#bdbdbd',
+    opacity: 0.9,
     borderRadius: 5,
     padding: 3,
     flexDirection: 'row',
@@ -17,6 +18,7 @@ export default StyleSheet.create({
   image: {
     width: 90,
     height: 130,
+    borderRadius: 5
   },
   name: {
     color: '#616161',
@@ -24,6 +26,10 @@ export default StyleSheet.create({
     fontSize: 20,
     fontFamily: 'Avenir-Medium',
     marginLeft: 15,
+    marginRight: 15,
+    padding: 5,
+    paddingLeft: 10,
+    borderRadius: 5
   },
   button_view: {
     marginLeft: 10,

@@ -9,12 +9,13 @@ import {
 } from 'react-native';
 import style from './CardStyle';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
+import { BlurView } from "@react-native-community/blur";
 
 const Card = ({ onPress, name, isAdded, handleButton, img, disabled }) => {
 
   return (
     <TouchableWithoutFeedback onPress={onPress}>
-      <View style={style.container}>
+      <View style={style.container} >
         <Image style={style.image} source={{uri: img}} />
         <View style={style.inner_container}>
           <Text style={style.name}>{name}</Text>  
